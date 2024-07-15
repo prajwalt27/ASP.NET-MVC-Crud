@@ -1,0 +1,64 @@
+﻿@model CoreCrud.Models.Student
+@{
+    ViewData["Title"] = "AddStudent";
+    Layout = "~/Views/Shared/_studentLayout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Add new Student</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <a href="/Student/ShowAllStudents" class="btn btn-primary">Show All</a>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-2">
+            Name
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <span class="text-danger">
+                @Html.ValidationMessageFor(a=>a.Name)
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            City
+
+        </div>
+        <div class="col-md-4">
+            @Html.TextBoxFor(a => a.City, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            <span class="text-danger">
+                @Html.ValidationMessageFor(a => a.City)
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ValidationMessage("msg")
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-info" value="Save" />
+        </div>
+
+    </div>
+}

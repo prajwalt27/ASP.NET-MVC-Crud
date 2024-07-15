@@ -1,0 +1,43 @@
+﻿@model IEnumerable<CoreCrud.Models.Student>
+@{
+    ViewData["Title"] = "ShowAllStudents";
+    Layout = "~/Views/Shared/_studentLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Students</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <a href="/Student/AddStudent" class="btn btn-primary">Add new Student</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.City</td>
+                    <td>
+                        <a href="/student/EditStudent?id=@item.ID" class="btn btn-success">Edit</a>
+                        <a href="/student/DeleteStudent?id=@item.ID" onClick="return window.confirm('Are you sure ?')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
